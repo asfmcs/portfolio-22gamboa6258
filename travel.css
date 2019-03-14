@@ -1,0 +1,63 @@
+#title {
+  color: blue;
+  text-align: center;
+}
+
+h1 {
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+body {
+
+background-color: pink;
+text-align: center;
+}
+
+h2 {
+
+  color: blueviolet;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+
+}
+
+
+.latin {
+
+background-color: coral;
+text-align: center;
+
+}
+
+p {
+
+  background-color: crimson;
+  color: white;
+  text-decoration: underline;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  
+}
+
+#list-1 {
+
+  background-color: violet;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+
+h3 {
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+.list-2 {
+
+  background-color: plum;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
