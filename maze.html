@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<title>Skittles</title>
+<title>Maze</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -27,7 +27,7 @@ pre {
 </head>
 
 <body>
-<h1>Skittles</h1>
+<h1>Maze</h1>
 
 
 
@@ -40,37 +40,228 @@ class="codehs-editor-canvas"></canvas>
 <script>
 window.onload = function() {
 
-    function start(){
+    var headradius = 20;
+var rectwidth = headradius * 2;
+var rectheight = 20;
+var eyeradius = 5;
+var pupilradius = 3;
+var centerX = getWidth()/2;
+var centerY = getHeight()/2;
+var legradius= 5;
+// top are the ones for the ghosts
+var arcradius = 20;
+var eyeradiusg = 3;
+var pacradius = 25;
+var centerXg = getWidth()/2;
+var centerYg = getHeight()/2 + 150;
+var bowradius = 8;
+var pelletradius = 3;
+//top are the ones for the pacman
+
+
+function start(){
+    drawMaze(0, 0, Color.black);
+    drawPacman(centerXg, centerYg, Color.yellow);
+    drawGhost(centerX, centerY, Color.red);
+    drawGhost(150, 240, Color.green);
+    drawGhost(250, 240, Color.purple);
+    drawGhost(175, 190, Color.orange);
+    drawGhost(225, 190, Color.yellow);
+    var txt = new Text("READY!", "20pt Helvetica");
+    txt.setPosition(150, 310);
+    txt.setColor(Color.yellow);
+    add(txt);
+    var htxt = new Text("HIGH SCORE", "15pt Helvetica");
+    htxt.setPosition(140, 30);
+    htxt.setColor(Color.yellow);
+    add(htxt);
+    var uptext = new Text("1UP", "15pt Helvetica");
+    uptext.setPosition(25, 30);
+    uptext.setColor(Color.yellow);
+    add(uptext);
+}
+
+function drawMaze(x, y, color){
+    var background = new Rectangle(getWidth() , getHeight());
+    background.setColor(color);
+    background.setPosition(0 , 0);
+    add(background);
     
-    var skittles = Randomizer.nextInt(0, 1023);
+    var wall = new Line(100, 275, 300, 275);
+    wall.setColor(Color.blue);
+    add(wall);
     
-    println(skittles);
+    var swall = new Line(100, 275, 100, 175);
+    swall.setColor(Color.blue);
+    add(swall);
     
-    println("Oh hi! I'm thinking of a number between 0 and 1023. Which one is it? ");
+    var rwall = new Line(300, 275, 300, 175);
+    rwall.setColor(Color.blue);
+    add(rwall);
+    
+}
+
+function drawPacman(centerX, centerY){
+    var pachead = new Circle(pacradius);
+    pachead.setColor(Color.yellow);
+    pachead.setPosition(centerXg, centerYg);
+    add(pachead);
+    
+    var eye = new Circle(eyeradiusg);
+    eye.setColor(Color.black);
+    eye.setPosition(centerXg + 5 , centerYg - 15);
+    add(eye);
+    
+    var bow = new Circle(bowradius);
+    bow.setColor(Color.red);
+    bow.setPosition(centerXg - 20, centerYg - 15);
+    add(bow);
+    
+    var mouth = new Arc(arcradius, 320, 30, 0);
+    mouth.setColor(Color.black);
+    mouth.setPosition(centerXg + 6, centerYg);
+    add(mouth);
+    
+    var pellet = new Circle(pelletradius);
+    pellet.setColor(Color.blue);
+    pellet.setPosition(centerXg + 90, centerYg + 40);
+    add(pellet);
+    
+    var rpellet = new Circle(pelletradius);
+    rpellet.setColor(Color.blue);
+    rpellet.setPosition(centerXg + 120, centerYg + 40);
+    add(rpellet);
+    
+    var spellet = new Circle(pelletradius);
+    spellet.setColor(Color.blue);
+    spellet.setPosition(centerXg + 60, centerYg + 40);
+    add(spellet);
+    
+    var mpellet = new Circle(pelletradius);
+    mpellet.setColor(Color.blue);
+    mpellet.setPosition(centerXg + 150, centerYg + 40);
+    add(mpellet);
+    
+    var tpellet = new Circle(pelletradius);
+    tpellet.setColor(Color.blue);
+    tpellet.setPosition(centerXg + 180, centerYg + 40);
+    add(tpellet);
+    
+    var apellet = new Circle(pelletradius);
+    apellet.setColor(Color.blue);
+    apellet.setPosition(centerXg + 180, centerYg - 300);
+    add(apellet);
+    
+    var bpellet = new Circle(pelletradius);
+    bpellet.setColor(Color.blue);
+    bpellet.setPosition(centerXg + 150, centerYg - 300);
+    add(bpellet);
+    
+    var cpellet = new Circle(pelletradius);
+    cpellet.setColor(Color.blue);
+    cpellet.setPosition(centerXg + 120, centerYg - 300);
+    add(cpellet);
+    
+    var dpellet = new Circle(pelletradius);
+    dpellet.setColor(Color.blue);
+    dpellet.setPosition(centerXg + 90, centerYg - 300);
+    add(dpellet);
+    
+    var epellet = new Circle(pelletradius);
+    epellet.setColor(Color.blue);
+    epellet.setPosition(centerXg + 60, centerYg - 300);
+    add(epellet);
+    
+    var fpellet = new Circle(pelletradius);
+    fpellet.setColor(Color.blue);
+    fpellet.setPosition(centerXg + 30, centerYg - 300);
+    add(fpellet);
+    
+    var gpellet = new Circle(pelletradius);
+    gpellet.setColor(Color.blue);
+    gpellet.setPosition(centerXg, centerYg - 300);
+    add(gpellet);
+    
+    var hpellet = new Circle(pelletradius);
+    hpellet.setColor(Color.blue);
+    hpellet.setPosition(centerXg - 30, centerYg - 300);
+    add(hpellet);
+    
+    var ipellet = new Circle(pelletradius);
+    ipellet.setColor(Color.blue);
+    ipellet.setPosition(centerXg - 60, centerYg - 300);
+    add(ipellet);
+    
+    var jpellet = new Circle(pelletradius);
+    jpellet.setColor(Color.blue);
+    jpellet.setPosition(centerXg - 90, centerYg - 300);
+    add(jpellet);
+    
+    var kpellet = new Circle(pelletradius);
+    kpellet.setColor(Color.blue);
+    kpellet.setPosition(centerXg - 120, centerYg - 300);
+    add(kpellet);
+    
+    var lpellet = new Circle(pelletradius);
+    lpellet.setColor(Color.blue);
+    lpellet.setPosition(centerXg - 150, centerYg - 300);
+    add(lpellet);
+    
+    var zpellet = new Circle(pelletradius);
+    zpellet.setColor(Color.blue);
+    zpellet.setPosition(centerXg - 180, centerYg - 300);
+    add(zpellet);
     
     
     
-    while(guess !== skittles)
-    {
-        var guess= readInt("");
-        
-        if (guess == skittles)
-        {
-            println("Yay, you got it right!");
-            break;
-            
-        } 
-        else if (guess > skittles)
-        {
-           println("Huh, that's too large, try again:");
-        }
-        
-       else 
-       {
-            println("Mmmm, that's too small, please try again: ");  
-       }
-       
-    }
+    
+}
+
+function drawGhost(centerX, centerY, color){
+    var headcirc = new Circle(headradius);
+    headcirc.setPosition(centerX, centerY);
+    headcirc.setColor(color);
+    add(headcirc);
+    
+    var body = new Rectangle(rectwidth, rectheight);
+    body.setPosition(centerX - 20, centerY);
+    body.setColor(Color);
+    add(body);
+    
+    var lefteye = new Circle(eyeradius);
+    lefteye.setPosition(centerX - 10, centerY + 4);
+    lefteye.setColor(Color.WHITE);
+    add(lefteye);
+    
+    var righteye = new Circle(eyeradius);
+    righteye.setPosition(centerX + 10, centerY + 4);
+    righteye.setColor(Color.WHITE);
+    add(righteye);
+    
+    var leftpupil = new Circle(pupilradius);
+    leftpupil.setPosition(centerX - 8, centerY + 4);
+    leftpupil.setColor(Color.BLUE);
+    add(leftpupil);
+    
+    var rightpupil = new Circle(pupilradius);
+    rightpupil.setPosition(centerX + 12, centerY + 4);
+    rightpupil.setColor(Color.BLUE);
+    add(rightpupil);
+    
+    var rleg = new Circle(legradius);
+    rleg.setPosition(centerX - 15, centerY + 22);
+    rleg.setColor(color);
+    add(rleg);
+    
+    var mleg = new Circle(legradius);
+    mleg.setPosition(centerX, centerY + 22);
+    mleg.setColor(color);
+    add(mleg);
+    
+    var eleg = new Circle(legradius);
+    eleg.setPosition(centerX + 15, centerY + 22);
+    eleg.setColor(color);
+    add(eleg);
 }
 
 
