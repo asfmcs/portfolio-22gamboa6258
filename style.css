@@ -107,6 +107,15 @@ h2 {
   width: 180px;
 }
 
+.maze {
+  margin: 20px;
+  float: left;
+
+}
+
+
+
+
 th {
 
   color: white;
@@ -129,3 +138,23 @@ text-align: center;
 #wd {
   text-align: center;
 }
+
+.Maze {
+  font-size: 40px;
+  color: white;
+  
+}
+
+.Mario {
+  font-size: 40px;
+  
+  color: white;
+}
+
+.Skittles {
+  font-size: 40px;
+  
+  color: white;
+}
+
+
